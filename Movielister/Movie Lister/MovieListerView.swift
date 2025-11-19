@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieListerView: View {
     @State private var searchText: String = ""
+    @FocusState private var isEditorFocused: Bool
     
     var body: some View {
         
@@ -52,6 +53,7 @@ struct MovieListerView: View {
                         .scrollContentBackground(.hidden)
                         .cornerRadius(10)
                         .font(.mainText)
+                        .focused($isEditorFocused)
                     
                     if searchText.isEmpty {
                         Text("Add your movie list here..")
@@ -71,6 +73,21 @@ struct MovieListerView: View {
         }
         .padding(20)
         .background(Color.mainBackground)
+        .onTapGesture {
+            isEditorFocused = false
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    isEditorFocused = false
+                } label: {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                        .imageScale(.medium)
+                }
+            }
+        }
     }
 }
 
