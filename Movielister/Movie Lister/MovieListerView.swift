@@ -26,7 +26,7 @@ struct MovieListerView: View {
                         .font(.smallText)
                     Spacer()
                     Button("Paste") {
-                        // TODO: Add paste action
+                        searchText = UIPasteboard.general.string ?? ""
                     }
                     .frame(height: 24)
                     .padding(.horizontal, 12)
@@ -36,7 +36,7 @@ struct MovieListerView: View {
                     .cornerRadius(12)
                     Spacer().frame(width: 16)
                     Button {
-                        // TODO: Add delete action
+                        searchText.removeAll()
                     } label: {
                         Image(.iconTrash)
                     }
