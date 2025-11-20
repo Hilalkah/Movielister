@@ -15,38 +15,7 @@ struct MovieListerView: View {
         searchText
             .components(separatedBy: .newlines)
             .filter { !$0.isEmpty }
-            .map { line in
-                var text = line
-                var watched: Bool = false
-                
-                // Detect watched markers at start or end: ✅
-                let watchedPatterns = [
-                    "^\\s*[✓✔✅]+\\s*",
-                    "\\s*[✓✔✅]+\\s*$"
-                ]
-                for pattern in watchedPatterns {
-                    if let range = text.range(of: pattern, options: [.regularExpression]) {
-                        watched = true
-                        text.removeSubrange(range)
-                    }
-                }
-                
-                // Extract note in parentheses
-                var note: String? = nil
-                if let noteRange = text.range(of: "\\((.*?)\\)", options: .regularExpression) {
-                    let inner = text[noteRange]
-                    let rawNote = String(inner.dropFirst().dropLast())
-                    note = String(rawNote).trimmingCharacters(in: .whitespacesAndNewlines)
-                    text.removeSubrange(noteRange)
-                }
-                
-                // Clean remaining title
-                let title = text.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                return MovieItem(title: title, note: note, isWatched: watched)
-            }
-            .filter { !$0.title.isEmpty }
+            .compactMap { MovieLineParser.parse($0) }
     }
     
     var body: some View {
