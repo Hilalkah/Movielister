@@ -29,9 +29,9 @@ struct MovieItemView: View {
                 Image("icon-search")
             }
         }
-        .frame(height: 44)
         .padding(.horizontal, 20)
         .padding(.vertical, 5)
+        .frame(height: 44)
         .background(movieItem.isWatched ? Color.mainWhite : Color.mainPurple)
         .cornerRadius(44)
     }

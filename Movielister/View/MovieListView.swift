@@ -16,6 +16,8 @@ struct MovieListViewModel {
 struct MovieListView: View {
     var viewModel: MovieListViewModel
     
+    @State private var isCollapsed = false
+    
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -32,16 +34,20 @@ struct MovieListView: View {
                     .cornerRadius(12)
                 Spacer()
                 Button {
-                    
+                    isCollapsed.toggle()
                 } label: {
                     Image("icon-arrow")
+                        .rotationEffect(isCollapsed ? .radians(.pi) : .zero)
                 }
             }
+            .frame(height: 24)
             .padding(.horizontal, 16)
             .padding(.top, 16)
-            .padding(.bottom, 8)
-            ForEach(viewModel.movieList) { movieItem in
-                MovieItemView(movieItem: movieItem)
+            .padding(.bottom, !isCollapsed ? 8 : 0)
+            if !isCollapsed {
+                ForEach(viewModel.movieList) { movieItem in
+                    MovieItemView(movieItem: movieItem)
+                }
             }
         }
         .padding(.horizontal, 16)
