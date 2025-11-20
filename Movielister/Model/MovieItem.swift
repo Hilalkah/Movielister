@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieItem {
+struct MovieItem: Identifiable {
     let id = UUID()
     let title: String
     let note: String?

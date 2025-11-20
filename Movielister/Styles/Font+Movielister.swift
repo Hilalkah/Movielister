@@ -21,6 +21,10 @@ extension Font {
         .system(size: 14, weight: .regular)
     }
     
+    static var titleText: Font {
+        .system(size: 14, weight: .semibold)
+    }
+    
     static var smallText: Font {
         .system(size: 10, weight: .regular)
     }
