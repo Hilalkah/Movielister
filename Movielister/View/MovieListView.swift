@@ -14,7 +14,8 @@ struct MovieListViewModel {
 }
 
 struct MovieListView: View {
-    var viewModel: MovieListViewModel
+    let viewModel: MovieListViewModel
+    let onSearchMovie: (MovieItem) -> Void
     
     @State private var isCollapsed = false
     
@@ -46,7 +47,12 @@ struct MovieListView: View {
             .padding(.bottom, !isCollapsed ? 8 : 0)
             if !isCollapsed {
                 ForEach(viewModel.movieList) { movieItem in
-                    MovieItemView(movieItem: movieItem)
+                    MovieItemView(
+                        movieItem: movieItem,
+                        onSearchTapped: {
+                            onSearchMovie(movieItem)
+                        }
+                    )
                 }
             }
         }
@@ -65,7 +71,9 @@ struct MovieListView: View {
             MovieItem(title: "Inception", note: "Christopher Nolan", isWatched: false),
             MovieItem(title: "The Dark Knight", note: nil, isWatched: false)
         ]
-    ))
+    ), onSearchMovie: { _ in })
+    .padding()
+    .background(Color.mainBackground)
     
     MovieListView(viewModel: .init(
         image: Image("icon-checked"),
@@ -73,5 +81,7 @@ struct MovieListView: View {
         movieList: [
             MovieItem(title: "Here", note: nil, isWatched: true)
         ]
-    ))
+    ), onSearchMovie: { _ in })
+    .padding()
+    .background(Color.mainBackground)
 }

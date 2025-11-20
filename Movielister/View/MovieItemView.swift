@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MovieItemView: View {
-    var movieItem: MovieItem
+    let movieItem: MovieItem
+    let onSearchTapped: () -> Void
     
     var body: some View {
         HStack {
@@ -23,9 +24,7 @@ struct MovieItemView: View {
                 }
             }
             Spacer()
-            Button {
-                
-            } label: {
+            Button(action: onSearchTapped) {
                 Image("icon-search")
             }
         }
@@ -38,6 +37,6 @@ struct MovieItemView: View {
 }
 
 #Preview {
-    MovieItemView(movieItem: MovieItem(title: "Inception", note: "Christopher Nolan", isWatched: true))
-    MovieItemView(movieItem: MovieItem(title: "The Dark Knight", note: nil, isWatched: false))
+    MovieItemView(movieItem: MovieItem(title: "Inception", note: "Christopher Nolan", isWatched: true), onSearchTapped: {})
+    MovieItemView(movieItem: MovieItem(title: "The Dark Knight", note: nil, isWatched: false), onSearchTapped: {})
 }

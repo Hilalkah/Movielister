@@ -88,7 +88,7 @@ struct MovieListerView: View {
                             image: Image("icon-glasses"),
                             header: "UNWATCHED",
                             movieList: unwatchedMovies
-                        ))
+                        ), onSearchMovie: searchMovie)
                     }
                     let watchedMovies = movies.filter { $0.isWatched }
                     if !watchedMovies.isEmpty {
@@ -97,7 +97,7 @@ struct MovieListerView: View {
                             image: Image("icon-checked"),
                             header: "WATCHED",
                             movieList: watchedMovies
-                        ))
+                        ), onSearchMovie: searchMovie)
                     }
                 }
             }
@@ -119,6 +119,16 @@ struct MovieListerView: View {
                         .imageScale(.medium)
                 }
             }
+        }
+    }
+    
+    private func searchMovie(with movie: MovieItem) {
+        let query = movie.title.addingPercentEncoding(
+            withAllowedCharacters: .urlQueryAllowed
+        ) ?? ""
+        let googleUrlString = "https://www.google.com/search?q=\(query)+izle"
+        if let url = URL(string: googleUrlString) {
+            UIApplication.shared.open(url)
         }
     }
 }
