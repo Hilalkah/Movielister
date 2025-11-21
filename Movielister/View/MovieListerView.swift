@@ -8,15 +8,8 @@
 import SwiftUI
 
 struct MovieListerView: View {
-    @State private var searchText: String = ""
+    @State private var viewModel = MovieListerViewModel()
     @FocusState private var isEditorFocused: Bool
-    
-    var movies: [MovieItem] {
-        searchText
-            .components(separatedBy: .newlines)
-            .filter { !$0.isEmpty }
-            .compactMap { MovieLineParser.parse($0) }
-    }
     
     var body: some View {
         
@@ -31,14 +24,14 @@ struct MovieListerView: View {
                 Spacer().frame(height: 16)
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        if !movies.isEmpty {
-                            Text("\(movies.count) movies")
+                        if !viewModel.movies.isEmpty {
+                            Text("\(viewModel.movieCount) movies")
                                 .font(.smallText)
                                 .foregroundStyle(.smallText)
                         }
                         Spacer()
                         Button("Paste") {
-                            searchText = UIPasteboard.general.string ?? ""
+                            viewModel.pasteFromClipboard()
                         }
                         .frame(height: 24)
                         .padding(.horizontal, 12)
@@ -48,7 +41,7 @@ struct MovieListerView: View {
                         .cornerRadius(12)
                         Spacer().frame(width: 16)
                         Button {
-                            searchText.removeAll()
+                            viewModel.clearText()
                         } label: {
                             Image(.iconTrash)
                         }
@@ -56,7 +49,7 @@ struct MovieListerView: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 16)
                     ZStack(alignment: .topLeading) {
-                        TextEditor(text: $searchText)
+                        TextEditor(text: $viewModel.searchText)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 9)
                             .frame(minHeight: 150, idealHeight: 150)
@@ -66,7 +59,7 @@ struct MovieListerView: View {
                             .font(.mainText)
                             .focused($isEditorFocused)
                         
-                        if searchText.isEmpty {
+                        if viewModel.searchText.isEmpty {
                             Text("Add your movie list here..")
                                 .foregroundStyle(.secondary)
                                 .font(.mainText)
@@ -80,24 +73,24 @@ struct MovieListerView: View {
                 .frame(height: 215)
                 .background(Color.white)
                 .cornerRadius(20)
-                if !movies.isEmpty {
-                    let unwatchedMovies = movies.filter { !$0.isWatched }
+                if !viewModel.movies.isEmpty {
+                    let unwatchedMovies = viewModel.unwatchedMovies
                     if !unwatchedMovies.isEmpty {
                         Spacer().frame(height: 16)
                         MovieListView(viewModel: .init(
                             image: Image("icon-glasses"),
                             header: "UNWATCHED",
                             movieList: unwatchedMovies
-                        ), onSearchMovie: searchMovie)
+                        ), onSearchMovie: viewModel.searchMovie)
                     }
-                    let watchedMovies = movies.filter { $0.isWatched }
+                    let watchedMovies = viewModel.watchedMovies
                     if !watchedMovies.isEmpty {
                         Spacer().frame(height: 16)
                         MovieListView(viewModel: .init(
                             image: Image("icon-checked"),
                             header: "WATCHED",
                             movieList: watchedMovies
-                        ), onSearchMovie: searchMovie)
+                        ), onSearchMovie: viewModel.searchMovie)
                     }
                 }
             }
@@ -119,16 +112,6 @@ struct MovieListerView: View {
                         .imageScale(.medium)
                 }
             }
-        }
-    }
-    
-    private func searchMovie(with movie: MovieItem) {
-        let query = movie.title.addingPercentEncoding(
-            withAllowedCharacters: .urlQueryAllowed
-        ) ?? ""
-        let googleUrlString = "https://www.google.com/search?q=\(query)+izle"
-        if let url = URL(string: googleUrlString) {
-            UIApplication.shared.open(url)
         }
     }
 }
