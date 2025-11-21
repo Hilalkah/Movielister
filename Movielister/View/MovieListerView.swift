@@ -57,11 +57,12 @@ struct MovieListerView: View {
                             .scrollContentBackground(.hidden)
                             .cornerRadius(10)
                             .font(.mainText)
+                            .foregroundStyle(.black)
                             .focused($isEditorFocused)
                         
                         if viewModel.searchText.isEmpty {
                             Text("Add your movie list here..")
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.gray)
                                 .font(.mainText)
                                 .padding(16)
                                 .allowsHitTesting(false)
