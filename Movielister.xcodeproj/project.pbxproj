@@ -6,8 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		47C6FF332FE0966200069472 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 470B2F1C2ECD030300D0FA01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 470B2F232ECD030300D0FA01;
+			remoteInfo = Movielister;
+		};
+		47C6FF612FE098A700069472 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 470B2F1C2ECD030300D0FA01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 470B2F232ECD030300D0FA01;
+			remoteInfo = Movielister;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		470B2F242ECD030300D0FA01 /* Movielister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movielister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47C6FF2F2FE0966200069472 /* MovielisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovielisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47C6FF5B2FE098A700069472 /* MovielisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovielisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +35,34 @@
 			path = Movielister;
 			sourceTree = "<group>";
 		};
+		47C6FF302FE0966200069472 /* MovielisterTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MovielisterTests;
+			sourceTree = "<group>";
+		};
+		47C6FF5C2FE098A700069472 /* MovielisterUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MovielisterUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		470B2F212ECD030300D0FA01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47C6FF2C2FE0966200069472 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47C6FF582FE098A700069472 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				470B2F262ECD030300D0FA01 /* Movielister */,
+				47C6FF302FE0966200069472 /* MovielisterTests */,
+				47C6FF5C2FE098A700069472 /* MovielisterUITests */,
 				470B2F252ECD030300D0FA01 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				470B2F242ECD030300D0FA01 /* Movielister.app */,
+				47C6FF2F2FE0966200069472 /* MovielisterTests.xctest */,
+				47C6FF5B2FE098A700069472 /* MovielisterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +117,52 @@
 			productReference = 470B2F242ECD030300D0FA01 /* Movielister.app */;
 			productType = "com.apple.product-type.application";
 		};
+		47C6FF2E2FE0966200069472 /* MovielisterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47C6FF352FE0966200069472 /* Build configuration list for PBXNativeTarget "MovielisterTests" */;
+			buildPhases = (
+				47C6FF2B2FE0966200069472 /* Sources */,
+				47C6FF2C2FE0966200069472 /* Frameworks */,
+				47C6FF2D2FE0966200069472 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47C6FF342FE0966200069472 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				47C6FF302FE0966200069472 /* MovielisterTests */,
+			);
+			name = MovielisterTests;
+			packageProductDependencies = (
+			);
+			productName = MovielisterTests;
+			productReference = 47C6FF2F2FE0966200069472 /* MovielisterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		47C6FF5A2FE098A700069472 /* MovielisterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47C6FF632FE098A700069472 /* Build configuration list for PBXNativeTarget "MovielisterUITests" */;
+			buildPhases = (
+				47C6FF572FE098A700069472 /* Sources */,
+				47C6FF582FE098A700069472 /* Frameworks */,
+				47C6FF592FE098A700069472 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47C6FF622FE098A700069472 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				47C6FF5C2FE098A700069472 /* MovielisterUITests */,
+			);
+			name = MovielisterUITests;
+			packageProductDependencies = (
+			);
+			productName = MovielisterUITests;
+			productReference = 47C6FF5B2FE098A700069472 /* MovielisterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -77,11 +170,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
+				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					470B2F232ECD030300D0FA01 = {
 						CreatedOnToolsVersion = 26.1.1;
+					};
+					47C6FF2E2FE0966200069472 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = 470B2F232ECD030300D0FA01;
+					};
+					47C6FF5A2FE098A700069472 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = 470B2F232ECD030300D0FA01;
 					};
 				};
 			};
@@ -100,12 +201,28 @@
 			projectRoot = "";
 			targets = (
 				470B2F232ECD030300D0FA01 /* Movielister */,
+				47C6FF2E2FE0966200069472 /* MovielisterTests */,
+				47C6FF5A2FE098A700069472 /* MovielisterUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		470B2F222ECD030300D0FA01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47C6FF2D2FE0966200069472 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47C6FF592FE098A700069472 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +239,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		47C6FF2B2FE0966200069472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47C6FF572FE098A700069472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47C6FF342FE0966200069472 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 470B2F232ECD030300D0FA01 /* Movielister */;
+			targetProxy = 47C6FF332FE0966200069472 /* PBXContainerItemProxy */;
+		};
+		47C6FF622FE098A700069472 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 470B2F232ECD030300D0FA01 /* Movielister */;
+			targetProxy = 47C6FF612FE098A700069472 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		470B2F2D2ECD030400D0FA01 /* Debug */ = {
@@ -320,6 +464,92 @@
 			};
 			name = Release;
 		};
+		47C6FF362FE0966200069472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K82L669RJD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilalkahraman.MovielisterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movielister.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Movielister";
+			};
+			name = Debug;
+		};
+		47C6FF372FE0966200069472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K82L669RJD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilalkahraman.MovielisterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movielister.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Movielister";
+			};
+			name = Release;
+		};
+		47C6FF642FE098A700069472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K82L669RJD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilalkahraman.MovielisterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Movielister;
+			};
+			name = Debug;
+		};
+		47C6FF652FE098A700069472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K82L669RJD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hilalkahraman.MovielisterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Movielister;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -337,6 +567,24 @@
 			buildConfigurations = (
 				470B2F302ECD030400D0FA01 /* Debug */,
 				470B2F312ECD030400D0FA01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47C6FF352FE0966200069472 /* Build configuration list for PBXNativeTarget "MovielisterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47C6FF362FE0966200069472 /* Debug */,
+				47C6FF372FE0966200069472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47C6FF632FE098A700069472 /* Build configuration list for PBXNativeTarget "MovielisterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47C6FF642FE098A700069472 /* Debug */,
+				47C6FF652FE098A700069472 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
