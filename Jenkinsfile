@@ -10,6 +10,12 @@ pipeline {
 
     stages {
 
+        stage('Notify Pending') {
+            steps {
+                githubNotify status: 'PENDING', description: 'Tests are running...', credentialsId: 'github-token'
+            }
+        }
+
         stage('Install') {
             steps {
                 sh '''
@@ -28,6 +34,15 @@ pipeline {
                     bundle _1.17.2_ exec fastlane unit_test
                 '''
             }
+        }
+    }
+
+    post {
+        success {
+            githubNotify status: 'SUCCESS', description: 'Tests passed!', credentialsId: 'github-token'
+        }
+        failure {
+            githubNotify status: 'FAILURE', description: 'Tests failed!', credentialsId: 'github-token'
         }
     }
 }
