@@ -6,13 +6,19 @@ pipeline {
         LANG = "en_US.UTF-8"
         LC_ALL = "en_US.UTF-8"
         LANGUAGE = "en_US.UTF-8"
+        GIT_SHA = "${env.GIT_COMMIT}"
     }
 
     stages {
 
         stage('Notify Pending') {
             steps {
-                githubNotify status: 'PENDING', description: 'Tests are running...', credentialsId: 'github-token'
+                githubNotify status: 'PENDING',
+                             description: 'Tests are running...',
+                             credentialsId: 'github-token',
+                             account: 'Hilalkah',
+                             repo: 'Movielister',
+                             sha: "${GIT_COMMIT}"
             }
         }
 
@@ -39,10 +45,20 @@ pipeline {
 
     post {
         success {
-            githubNotify status: 'SUCCESS', description: 'Tests passed!', credentialsId: 'github-token'
+            githubNotify status: 'SUCCESS',
+                         description: 'Tests passed!',
+                         credentialsId: 'github-token',
+                         account: 'Hilalkah',
+                         repo: 'Movielister',
+                         sha: "${GIT_COMMIT}"
         }
         failure {
-            githubNotify status: 'FAILURE', description: 'Tests failed!', credentialsId: 'github-token'
+            githubNotify status: 'FAILURE',
+                         description: 'Tests failed!',
+                         credentialsId: 'github-token',
+                         account: 'Hilalkah',
+                         repo: 'Movielister',
+                         sha: "${GIT_COMMIT}"
         }
     }
 }
