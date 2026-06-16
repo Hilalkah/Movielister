@@ -2,15 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Gems') {
+        stage('Install Bundler deps') {
             steps {
-                sh 'bundle install'
+                sh '''
+                    export PATH="$HOME/.gem/ruby/3.*/bin:$PATH"
+                    bundle install
+                '''
             }
         }
 
         stage('Run Unit Tests') {
             steps {
-                sh 'bundle exec fastlane unit_test'
+                sh '''
+                    export PATH="$HOME/.gem/ruby/3.*/bin:$PATH"
+                    bundle exec fastlane unit_test
+                '''
             }
         }
     }
