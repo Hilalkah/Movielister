@@ -13,7 +13,7 @@ platform :ios do
 
     desc 'Build and distribute to Firebase App Distribution'
     lane :distribute do
-      increment_build_number
+      increment_build_number(build_number: ENV['BUILD_NUMBER'])
       gym(
         scheme: "Movielister",
         workspace: "Movielister.xcodeproj/project.xcworkspace",
@@ -23,7 +23,7 @@ platform :ios do
       firebase_app_distribution(
         app: "1:935892061227:ios:89005bcd373d72a7e72e6e",
         groups: "testers",
-        release_notes: ENV["GIT_COMMIT_MSG"]
+        release_notes: "#{ENV['BRANCH_NAME']}\n#{ENV['GIT_COMMIT_MSG']}"
       )
     end
     
