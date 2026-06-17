@@ -13,6 +13,9 @@ Track your movie watchlist with ease!
 - SwiftUI
 - iOS 17.6+
 - MVVM Architecture
+- Fastlane
+- Github Actions (disabled)
+- Jenkins
 
 
 ## Screenshots
