@@ -6,12 +6,11 @@ pipeline {
         LANG = "en_US.UTF-8"
         LC_ALL = "en_US.UTF-8"
         LANGUAGE = "en_US.UTF-8"
-        GIT_SHA = "${env.GIT_COMMIT}"
     }
 
     stages {
 
-        stage('Notify Pending') {
+        stage('Install') {
             steps {
                 githubNotify status: 'PENDING',
                              description: 'Tests are running...',
@@ -19,14 +18,8 @@ pipeline {
                              account: 'Hilalkah',
                              repo: 'Movielister',
                              sha: "${GIT_COMMIT}"
-            }
-        }
-
-        stage('Install') {
-            steps {
                 sh '''
                     eval "$(rbenv init -)"
-                    ruby -v
                     gem install bundler:1.17.2
                     bundle _1.17.2_ install
                 '''
