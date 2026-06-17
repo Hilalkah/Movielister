@@ -6,6 +6,7 @@ pipeline {
         LANG = "en_US.UTF-8"
         LC_ALL = "en_US.UTF-8"
         LANGUAGE = "en_US.UTF-8"
+        GIT_COMMIT_MSG = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
     }
 
     stages {
@@ -25,6 +26,15 @@ pipeline {
                 sh '''
                     eval "$(rbenv init -)"
                     bundle _1.17.2_ exec fastlane unit_test
+                '''
+            }
+        }
+
+        stage('Distribute') {
+            steps {
+                sh '''
+                    eval "$(rbenv init -)"
+                    bundle _1.17.2_ exec fastlane distribute
                 '''
             }
         }

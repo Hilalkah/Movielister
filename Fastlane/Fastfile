@@ -10,5 +10,21 @@ platform :ios do
         skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
       )
     end
+
+    desc 'Build and distribute to Firebase App Distribution'
+    lane :distribute do
+      increment_build_number
+      gym(
+        scheme: "Movielister",
+        workspace: "Movielister.xcodeproj/project.xcworkspace",
+        export_method: "development",
+        output_directory: "./build"
+      )
+      firebase_app_distribution(
+        app: "1:935892061227:ios:89005bcd373d72a7e72e6e",
+        groups: "testers",
+        release_notes: ENV["GIT_COMMIT_MSG"]
+      )
+    end
     
 end
