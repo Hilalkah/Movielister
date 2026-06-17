@@ -23,7 +23,7 @@ platform :ios do
       firebase_app_distribution(
         app: "1:935892061227:ios:89005bcd373d72a7e72e6e",
         groups: "testers",
-        release_notes: "#{ENV['CHANGE_BRANCH']} → #{ENV['CHANGE_TARGET']} | #{ENV['GIT_COMMIT_MSG']}"
+        release_notes: "#{ENV['BRANCH_NAME']}\n#{ENV['GIT_COMMIT_MSG']}"
       )
     end
     
