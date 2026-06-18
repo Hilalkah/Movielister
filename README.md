@@ -16,6 +16,7 @@ Track your movie watchlist with ease!
 - Fastlane
 - Github Actions (disabled)
 - Jenkins
+- Firebase App Distribution
 
 
 ## Screenshots

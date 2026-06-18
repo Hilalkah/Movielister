@@ -4,3 +4,5 @@ Build/
 Fastlane/report.xml
 Fastlane/test_output
 Fastlane/README.md
+vendor/
+.bundle/
