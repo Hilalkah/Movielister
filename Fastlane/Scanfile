@@ -4,7 +4,7 @@
 workspace "Movielister.xcodeproj/project.xcworkspace"
 scheme "Movielister"
 sdk "iphonesimulator"
-device "iPhone 17 (26.4)"
+device "iPhone 17"
 code_coverage true
 xcargs '-parallelizeTargets'
 prelaunch_simulator true

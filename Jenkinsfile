@@ -13,29 +13,19 @@ pipeline {
 
         stage('Install') {
             steps {
-                sh '''
-                    eval "$(rbenv init -)"
-                    gem install bundler:1.17.2
-                    bundle _1.17.2_ install
-                '''
+                sh 'bundle install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh '''
-                    eval "$(rbenv init -)"
-                    bundle _1.17.2_ exec fastlane unit_test
-                '''
+                sh 'bundle exec fastlane unit_test'
             }
         }
 
         stage('Distribute') {
             steps {
-                sh '''
-                    eval "$(rbenv init -)"
-                    bundle _1.17.2_ exec fastlane distribute
-                '''
+                sh 'bundle exec fastlane distribute'
             }
         }
     }
