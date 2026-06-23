@@ -5,10 +5,7 @@ platform :ios do
     
     desc 'Builds project and executes unit tests'
     lane :unit_test do |options|
-      scan(
-        clean: options[:clean],
-        skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
-      )
+      scan
     end
 
     desc 'Build and distribute to Firebase App Distribution'
