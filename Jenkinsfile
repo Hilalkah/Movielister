@@ -6,6 +6,7 @@ pipeline {
         LANG = "en_US.UTF-8"
         LC_ALL = "en_US.UTF-8"
         LANGUAGE = "en_US.UTF-8"
+        FIREBASE_APP_ID = credentials('MOVIELISTER_FIREBASE_APP_ID')
         GIT_COMMIT_MSG = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
     }
 
