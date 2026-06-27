@@ -18,7 +18,7 @@ platform :ios do
         output_directory: "./build"
       )
       firebase_app_distribution(
-        app: "1:935892061227:ios:89005bcd373d72a7e72e6e",
+        app: ENV['FIREBASE_APP_ID'],
         groups: "testers",
         release_notes: "#{ENV['BRANCH_NAME']}\n#{ENV['GIT_COMMIT_MSG']}"
       )
